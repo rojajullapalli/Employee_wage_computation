@@ -1,12 +1,12 @@
 #!/bin/bash -x
-
-echo "Welcome to Employee Wage Computation program "
- 
-# create random function and check employee is present or not using if else
-random=$(( RANDOM%2 ))
-if [ $random -eq 1 ]
+echo "Welcome to the employee wage page"
+isPresent=1;
+randomCheck=$(( RANDOM%2 ));
+if [ $isPresent -eq $randomCheck ];
 then
-	echo "Employee is present "
+ empRatePerHr=20;
+	empHrs=8;
+	salary=$(($empHrs*$empRatePerHr));
 else
-	echo "Employee is not present "
+	salary=0;
 fi
