@@ -5,7 +5,6 @@ isFullTime=2;
 maxHrsInMonth=10
 empRatePerHr=20
 numWorkingDays=20
-
 totalEmpHrs=0
 totalWorkingDays=0
 function getWorkingHours(){
@@ -22,6 +21,11 @@ function getWorkingHours(){
 	esac
 	echo $empHrs
 }
+function calDailyWages() {
+	totalWorkHrs=$1;
+	wages=$(( $totalWorkHrs*$empRatePerHr ))
+	echo $wages;
+
 while [[ $totalEmpHrs -lt $maxHrsInMonth && $totalWorkingDays -lt $numWorkingDays ]]
 do
 	totalWorkingDays=$(($totalWorkingDays+1))
@@ -29,3 +33,6 @@ do
 	totalEmpHrs=$(($totalEmpHrs+$empHrs))
 	totalSalary=$(($totalSalary+($totalEmpHrs*$empRatePerHr)))
 done
+totalSalary="$(calDailyWages $totalEmpHrs)"
+echo "daily wages :"
+    ${empDailyWages[@]}
